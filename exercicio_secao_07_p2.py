@@ -661,6 +661,7 @@ mb = 0 # Maior em baixo
 me = 0 # Maior na esquerda
 mr = 0 # Maior na direita (right)
 
+# formatação do arquivo matriz.txt
 
 with open("matriz.txt", "r") as matrix:
 	for line in matrix:
@@ -683,6 +684,8 @@ for i in range(m.count([])):
 for a in range(len(m)):
 	for b in range(len(m[a])):
 		m[a][b] = int(m[a][b])
+
+# formatação do arquivo matriz.txt
 
 for a in range(len(m) - 3):
 	for b in range(len(m[a]) - 3):
