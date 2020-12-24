@@ -724,3 +724,62 @@ print(f"O maior produto de 4 numeros e na direção {nomes[valores.index(max(val
 
 
 question(25)
+
+
+velha = [[0,0,0],[0,0,0],[0,0,0]]
+c = 0
+jogadores = [-1, 1]
+x = pd.DataFrame(velha)
+print(x)
+
+while True:
+    while True:
+        print(f"\n\n Escolha uma posição para jogar, jogador {jogadores[c%2]}")
+        print("\n Linha: ",end=" ")
+        lin = int(input())
+        print("\n Coluna: ",end=" ")
+        col = int(input())
+
+        if lin < 0 or col < 0 or lin > 2 or col > 2:
+            print("\nPosição Invalida.\n")
+
+        else:
+            if c % 2 == 0:
+                    if velha[lin][col] != 0:
+                        print("\nJogada Invalida.\n")
+                        
+
+                    else:
+                        velha[lin][col] = -1
+                        break
+
+                
+            else:
+                if velha[lin][col] != 0:
+                    print("\nJogada Invalida.\n")
+
+                else:
+                    velha[lin][col] = 1
+                    break
+
+  
+        
+    x = pd.DataFrame(velha)
+    print("\n\n")
+    print(x)
+    
+    if velha[0][0] != 0 or velha[1][1] != 0 or velha[2][2] != 0:
+        
+        if c>3 and velha[0][0] == velha[0][1] == velha[0][2] != 0 or velha[1][0] == velha[1][1] == velha[1][2] != 0 or velha[2][0] == velha[2][1] == velha[2][2] != 0:
+            print(f"\nJogador {jogadores[c%2]} venceu.")
+            break
+
+        elif c>3 and velha[0][0] == velha[1][1] == velha[2][2] != 0 or velha[0][2] == velha[1][1] == velha[2][0] != 0:
+            print(f"\nJogador {jogadores[c%2]} venceu.")
+            break
+
+        elif c>3 and velha[0][0] == velha[1][0] == velha[2][0] != 0 or velha[0][1] == velha[1][1] == velha[2][1] != 0 or velha[0][2] == velha[1][2] == velha[2][2] != 0:
+            print(f"\nJogador {jogadores[c%2]} venceu.")
+            break
+            
+    c += 1
